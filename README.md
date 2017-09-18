@@ -13,6 +13,8 @@ Bash Scripts created by Pablito2020, you can use it and adapt it to your device,
   
   * setup-the-enviorment.sh (this bash script is for download all the necessary packages for build the android source code kernel, rom, modem, fastboot)
   
+  * clean.sh (this bash script will clean you the kernel source, doing a make clean and a make mproper)
+  
 #### Credits (thanks to):
  * Ariafan
  * SRT team
