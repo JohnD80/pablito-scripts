@@ -15,6 +15,8 @@ Bash Scripts created by Pablito2020, you can use it and adapt it to your device,
   
   * clean.sh (this bash script will clean you the kernel source, doing a make clean and a make mproper)
   
+  * adb.sh (this bash script will execute the adb command, you must have the adb driver installed)
+  
 #### Credits (thanks to):
  * Ariafan
  * SRT team
