@@ -28,9 +28,8 @@ export KBUILD_BUILD_HOST=Daredevil
 # READ THE Lineage/AOSP DEFCONFIG (You can change the defconfig from your device)
 make lineage_krillin_defconfig
 
-# BUILD ZIMAGE ( I ADD -J4 BECAUSE IS MY PC CORES.... CHANGE THIS NUMBER FOR YOUR PC NUMBER OF CORES )
-# For check the pc cores open a terminal and write: grep -c ^processor /proc/cpuinfo
-make -j4 zImage
+# BUILD ZIMAGE
+make -j all zImage
 
 # COMPROBE IF THERE ARE COMPILATION ERRORS AND IF IT HAVE COMPILATION ERRORS SHOW THIS MESSAGE:
 if [ ! -f arch/arm/boot/zImage ]
