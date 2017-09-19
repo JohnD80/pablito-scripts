@@ -45,13 +45,13 @@ curl https://storage.googleapis.com/git-repo-downloads/repo > ~/bin/repo
 chmod a+x ~/bin/repo
 
 # Create a Lineage os directory
-mkdir Lineage-nougat
-cd Lineage-nougat
+mkdir Lineage-marshmallow
+cd Lineage-marshmallow
 
 # Specify out directory
 OUT=$CURR_DIR/out/target/product/krillin
 
-# Initialize the Lineage os 14.1 repo
+# Initialize the Lineage os 13.0 repo
 repo init -u git://github.com/LineageOS/android.git -b cm-13.0
 
 # Repo sync with force sync for the people who have a poor internet conection:
