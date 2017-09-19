@@ -19,6 +19,7 @@ Bash Scripts created by Pablito2020, you can use it and adapt it to your device,
   
 #### Credits (thanks to):
  * Ariafan
+ * Joel (AKA:cakehonolulu)
  * SRT team
  * Of course me :p
  
