@@ -17,9 +17,6 @@
 # You should have received a copy of the GNU General Public License
 # along with this program.  If not, see <http://www.gnu.org/licenses/>
 
-# FIRST OF ALL GET ROOT ACCESS!
-sudo su
-
 # Set colors (SOME OF THEM ARE NOT USED, BUT IF YOU LIKE, YOU CAN ADD IT IN THE ECHO LINES)
 blue='\033[0;34m'
 cyan='\033[0;36m'
@@ -70,6 +67,8 @@ repo init -u git://github.com/LineageOS/android.git -b cm-13.0
 # Repo sync with force sync for the people who have a poor internet conection:
 repo sync --force-sync
 
+# NOW IT COMES THE BQ AQUARIS SPECIFIC INITIALIZATION
+
 # Clone the krillin necessary repos
 # Device tree
 cd device
@@ -78,6 +77,7 @@ cd bq
 git clone https://github.com/Pablito2020/android_device_bq_krillin.git -b cm13.0
 mv android_device_bq_krillin krillin
 cd ../..
+
 # Kernel source:
 mkdir kernel
 cd kernel
@@ -86,6 +86,7 @@ cd bq
 git clone https://github.com/Pablito2020/android_kernel_bq_krillin.git -b cm-13.0
 mv android_kernel_bq_krillin krillin
 cd ../..
+
 # Vendor blobs:
 cd vendor
 mkdir bq
@@ -93,15 +94,12 @@ cd bq
 git clone https://github.com/Pablito2020/android_vendor_bq_krillin.git -b cm-13.0
 mv android_vendor_bq_krillin krillin
 cd ../..
+
 # EGL necessary files:
 cd external
 git clone https://github.com/LineageOS/android_external_stlport.git -b cm-13.0
 mv android_external_stlport stlport
 cd ..
-
-# Apply mtk source patches for krillin:
-#cd device/bq/krillin/patches
-#. apply-patches.sh
 
 # Initialize the build command
 . build/envsetup.sh
@@ -132,4 +130,3 @@ fi
 
 # If build was compiled succesfully then power off the computer
 sudo halt
-
