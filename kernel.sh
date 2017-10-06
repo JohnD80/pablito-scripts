@@ -35,9 +35,10 @@ echo -e "${orange}#       THANKS TO: ASSUSDAN, AND GUYS OF 4PDA      #"
 echo -e "${orange}####################################################"
 
 # EXPORT GOOGLE GCC TOOLCHAIN (you can change it if you use another toolchain)
-export ARCH=arm CROSS_COMPILE=../arm-eabi-4.8/bin/arm-eabi-
+export ARCH=arm    # If your device is arm64 change it to arm64
+export CROSS_COMPILE=../arm-eabi-4.8/bin/arm-eabi- # If you want to change your toolchain just change the path
 
-# User and Build Host (You can change it if you like :P)
+# User and Build Host (You can change it if you like)
 export KBUILD_BUILD_USER=Pablito2020
 export KBUILD_BUILD_HOST=Daredevil
 
@@ -57,7 +58,12 @@ else
 
 # IF THE KERNEL COMPILES SUCCESFULLY
 echo -e "${green} ########################################################"
+echo -e "${green} #                  FOR ARM DEVICES:                    #"
 echo -e "${green} #           ZIMAGE IS IN ARCH/ARM/BOOT/ZIMAGE          #"
+echo -e "${green} #                                                      #"
+echo -e "${green} #                 FOR ARM64 DEVICES:                   #"
+echo -e "${green} #         ZIMAGE IS IN ARCH/ARM64/BOOT/ZIMAGE          #"
+echo -e "${green} #                                                      #"
 echo -e "${green} #           HAVE FUN AND GIVE PROPER CREDITS!          #"
 echo -e "${green} ########################################################"
 fi
