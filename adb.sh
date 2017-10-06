@@ -16,28 +16,45 @@
 # You should have received a copy of the GNU General Public License
 # along with this program.  If not, see <http://www.gnu.org/licenses/>
 
-echo '############################################ '
-echo '#                                          # '
-echo '#            ADB LOGCAT SCRIPT             # '
-echo '#  YOU MUST HAVE THE ADB DRIVER INSTALLED  # '
-echo '#            FOR MAKE IT WORK              # '
-echo '#                                          # '
-echo '############################################ '
-
-# Check if the device is connected
-adb devices
-
-echo "Select the type of debbuging you want for:"
+# Echo lines
+echo "Select what do you want to do:"
 echo
-echo "  1 - Debug everything"
-echo "  2 - Debug warning, error and fatal mesasges"
-echo "  3 - Debug error and fatal messages"
-echo "  4 - Debug only fatal messages"
+echo '############################################ '
+echo '#                                          # '
+echo '#               SYSTEM TOOLS               # '
+echo '#                                          # '
+echo '############################################ '
+echo
+echo "  1 - ADB logcat (Showing everything)"
+echo "  2 - ADB logcat showing only  showing warning, error and fatal mesasges"
+echo "  3 - ADB logcat showing only showing error and fatal messages"
+echo "  4 - ADB logcat only showing fatal messages"
 echo "  5 - Debug everything and save it to a file called adb_debug.txt"
 echo "  6 - Debug warning, error and fatal mesasges and save it to a file called adb_warning.txt"
 echo "  7 - Debug error and fatal messages and save it to a file called adb_error.txt"
 echo "  8 - Debug only fatal messages and save it to a file called adb_fatal.txt"
 echo
+echo '############################################ '
+echo '#                                          # '
+echo '#               KERNEL TOOLS               # '
+echo '#                                          # '
+echo '############################################ '
+echo
+echo "  9 - ADB shell dmesg"
+echo "  10 - Make an adb shell dmesg and save it to a file called dmesg.txt"
+echo "  11 - Pull the last_kmsg file"
+echo
+echo '############################################ '
+echo '#                                          # '
+echo '#               BASIC TOOLS                # '
+echo '#                                          # '
+echo '############################################ '
+echo
+echo "  12 - reboot system"
+echo "  13 - reboot recovery"
+echo "  14 - reboot fastboot (I recomend to use this command only if you have a qcomn device)"
+echo "  15 - Check if your device is succesfully connected via adb"
+echo "  16 - Make an adb shell"
 echo "  x - Exit"
 echo
 echo -n "Enter Option: "
@@ -51,7 +68,14 @@ read opt
 		6) adb logcat *:W > adb_warning.txt;;
 		7) adb logcat *:E > adb_error.txt;;
 		8) adb logcat *:F > adb_fatal.txt;;
+                9) adb shell dmesg;;
+                10) adb shell dmesg > dmesg.txt;;
+                11) adb pull proc/last_kmsg2;;
+                12) adb reboot;;
+                13) adb reboot recovery;;
+                14) adb reboot-bootloader;;
+                15) adb devices;;
+                16) adb shell;;
 		x) clear; echo; echo "Goodbye."; echo; exit 1;;
 		*) ERR_MSG="Invalid option!"; clear;;
 	esac
-done
