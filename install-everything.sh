@@ -16,9 +16,13 @@
 # You should have received a copy of the GNU General Public License
 # along with this program.  If not, see <http://www.gnu.org/licenses/>
 
+# Variables
+si=sudo apt-get install
+s=sudo apt-get
+
 # Setup the global enviorment (necessary for build android libraries)
-sudo apt-get install git
-sudo apt-get install git ccache automake lzop bison gperf build-essential zip curl zlib1g-dev zlib1g-dev:i386 g++-multilib python-networkx libxml2-utils bzip2 libbz2-dev libbz2-1.0 libghc-bzlib-dev squashfs-tools pngcrush schedtool dpkg-dev liblz4-tool make optipng maven
-sudo apt-get update
-sudo apt-get install openjdk8-jdk
-sudo apt-get install repo
+$si git
+$si git ccache automake lzop bison gperf build-essential zip curl zlib1g-dev zlib1g-dev:i386 g++-multilib python-networkx libxml2-utils bzip2 libbz2-dev libbz2-1.0 libghc-bzlib-dev squashfs-tools pngcrush schedtool dpkg-dev liblz4-tool make optipng maven
+$s apt-get update
+$si openjdk8-jdk
+$si repo

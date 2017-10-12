@@ -17,11 +17,15 @@
 # You should have received a copy of the GNU General Public License
 # along with this program.  If not, see <http://www.gnu.org/licenses/>
 
-echo '################################# '
-echo '#                               # '
-echo '#  CLEANING THE KERNEL SOURCE   # '
-echo '#                               # '
-echo '################################# '
+# Variables
+m=make
+e=echo
 
-make clean
-make mrproper
+$e '################################# '
+$e '#                               # '
+$e '#  CLEANING THE KERNEL SOURCE   # '
+$e '#                               # '
+$e '################################# '
+
+$m clean
+$m mrproper
