@@ -37,9 +37,15 @@ $e -e "${orange}#             DEVELOPER: PABLITO2020               #"
 $e -e "${orange}#       THANKS TO: ASSUSDAN, AND GUYS OF 4PDA      #"
 $e -e "${orange}####################################################"
 
-# Export the google gcc toolchain
+# If the google toolchain 4.8 doesn't exist clone it.
+if [ ! -f ../arm-eabi-4.8/bin/arm-eabi-addr2line ]
+then
+cd ..
+git clone https://android.googlesource.com/platform/prebuilts/gcc/linux-x86/arm/arm-eabi-4.8
+else
 $ex ARCH=arm    # If your device is arm64 change it to arm64
 $ex CROSS_COMPILE=../arm-eabi-4.8/bin/arm-eabi- # If you want to change your toolchain just change the path
+fi
 
 # User and Build Host (You can change it if you like)
 $ex KBUILD_BUILD_USER=Pablito2020
