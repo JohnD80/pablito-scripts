@@ -28,7 +28,7 @@ orange='\033[0;33m'
 light_red='\033[1;31m'
 purple='\033[0;35m'
 OUT=$CURR_DIR/out/target/product/krillin
-dir=twrp
+dir=cm-twrp
 
 # Install/check/update repo command:
 mkdir ~/bin
@@ -42,29 +42,15 @@ cd $dir
 
 # Initialize the 5.1 omnirom repo (I used that because the krillin device tree is only adapted for 5.1)
 # You can change it if you like
-repo init -u git://github.com/omnirom/android.git -b android-5.1
+repo init -u git://github.com/LineageOS/android.git -b cm-14.1
 repo sync --force-sync
 
-# Delete the "old twrp 5.1 recovery and clone the newest version, that in october 2017 is the 8.0 branch)
-rm -rf bootable/recovery
-git clone https://github.com/omnirom/android_bootable_recovery.git -b android-8.0 bootable/recovery
+# Add TWRP comaptibility to the lineage os source
+git clone https://github.com/LineageOS/android_external_busybox external/busybox
+git clone https://github.com/OmniROM/android_bootable_recovery bootable/recovery-twrp
 
-# Now clone the omni tree for krillin
-git clone https://github.com/Pablito2020/android_recovery_bq_krillin.git device/bq/krillin
+# Now clone the device tree for krillin
+git clone https://github.com/Pablito2020/android_device_bq_krillin.git -b cm-14.1
 
 # Now compile the recovery
 . build/envsetup.sh
-lunch omni_krillin-userdebug
-make -j4 recoveryimage
-
-# Check if the recovery have been succesfully compiled if not then send a message to your phone
-# You have to change the line "-data-urlencode phone='ADD YOUR PHONE NUMBER HERE' \ " and change the ADD YOUR PHONE NUMBER HERE words 
-# to your phone number.
-# Example: --data-urlencode phone='+34 111111111' \
-# The prefix (for example +34 for spain, +1 for U.S.A, etc) IS IMPORTANT!
-if ! [ -f $OUT/recovery.img ]; then
-curl -X POST https://textbelt.com/text \
-       --data-urlencode phone='ADD YOUR PHONE NUMBER HERE' \
-       --data-urlencode message='Build failed :(' \
-       -d key=textbelt
-fi
